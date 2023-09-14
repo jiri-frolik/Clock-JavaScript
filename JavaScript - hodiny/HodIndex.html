@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="cz-cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digitální hodiny v JavaScriptu</title>
+    <link rel="stylesheet" href="hod.css">
+</head>
+<body>
+    <div class="hero">
+        <div class="container">
+            <div class="clock">
+                <span id="hod">00</span>
+                <span>:</span>
+                <span id="min">00</span>
+                <span>:</span>
+                <span id="sek">00</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let hod = document.getElementById("hod");
+        let min = document.getElementById("min");
+        let sek = document.getElementById("sek");
+
+        setInterval(() => {         
+            let currentTime = new Date();
+
+            hod.innerHTML = (currentTime.getHours() < 10?"0" :"") + currentTime.getHours();
+            min.innerHTML = (currentTime.getMinutes() < 10?"0" :"") + currentTime.getMinutes();
+            sek.innerHTML = (currentTime.getSeconds() < 10?"0" :"") + currentTime.getSeconds();
+
+        }, 1000) 
+
+    </script>
+
+</body>
+</html>
